@@ -1,0 +1,13 @@
+while True:
+    try:
+        number = int(input("Введите число: "))
+        if number < 1:
+            print("Число должно быть больше 1")
+            continue
+        count = 1
+        while count <= number:
+            print(count)
+            count += 1
+        break
+    except ValueError:
+        print("Некорректный ввод! Попробуйте еще раз...")
