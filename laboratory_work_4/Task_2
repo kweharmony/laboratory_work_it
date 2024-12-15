@@ -1,0 +1,14 @@
+import my_module
+
+rez = input("Выберите функцию(plus, minus, ymn, delen):")
+fir = input("Введит 1-е число:")
+sec = input("Введит 2-е число:")
+
+try:
+    print(getattr(my_module, rez)(fir, sec))
+
+except AttributeError:
+    print("Неправильно указана функция!")
+
+except ValueError:
+    print("Некорректный ввод!")
