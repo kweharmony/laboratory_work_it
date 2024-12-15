@@ -1,0 +1,12 @@
+while True:
+    try:
+        number1 = int(input("Введите первое число: "))
+        number2 = int(input("Введите второе число: "))
+        list = [number1, number2]
+        if number1 != number2:
+            print("Большее число:", max(list))
+        else:
+            print("Числа равны")
+        break
+    except ValueError:
+        print("Некорректный ввод! Попробуйте еще раз...")
