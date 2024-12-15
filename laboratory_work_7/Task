@@ -1,0 +1,61 @@
+class Employee():
+    
+    def __init__(self, name, id):
+        self.name = name
+        self._id = id
+
+    def get_info(self):
+        return f"Name: {self.name}, id: {self._id}"
+
+class Manager(Employee):
+
+    def __init__(self, name, id, department):
+        super().__init__(name, id)
+        self.department = department
+
+    def manage_project(self):
+        return f"Менеджер {self.name} управляет проектом в отделе ({self.department})"
+    
+class Technician(Employee):
+
+    def __init__(self, name, id, specialization):
+        super().__init__(name, id)
+        self.specialization = specialization
+
+    def perform_maintenance(self):
+        return f"Техник {self.name} выполняет техническое обслуживание в области ({self.specialization})"
+    
+class TechManager(Manager, Technician):
+
+    def __init__(self, name, id, department, specialization):
+        self.name= name
+        self._id = id
+        self.department = department
+        self.specialization = specialization
+        self.subordinates = []
+
+    def add_employee(self, *employees):
+        self.subordinates.extend(employees)
+    
+    def get_team_info(self):
+        subordinates_info = "Список подчинённых:\n"
+        for emp in self.subordinates:
+            subordinates_info += emp.get_info() + '\n'
+        return subordinates_info
+
+employee = Employee("Иван", 62931)
+manager = Manager("Брайан", 72912, "Разработка искусственного интеллекта")
+technician = Technician("Артём", 12532, "Кибербезопасность")
+techmanager = TechManager("Уильям", 54552, "Логистика", "Веб-разработка")
+
+print(employee.get_info())
+print(manager.get_info())
+print(manager.manage_project())
+print(technician.get_info())
+print(technician.perform_maintenance())
+print(techmanager.get_info())
+print(techmanager.manage_project())
+print(techmanager.perform_maintenance())
+
+techmanager.add_employee(employee, manager, technician)
+print(techmanager.get_team_info())
