@@ -1,0 +1,30 @@
+import my_package
+
+rez1 = input("Операции со строками (str) или цифрами (num):")
+
+if rez1 == "num":
+    rez2 = input("Выберите функцию(plus, minus, ymn, delen):")
+    fir = input("Введит 1-е число:")
+    sec = input("Введит 2-е число:")
+
+    try:
+        print(getattr(my_package.number_operations, rez2)(fir, sec))
+
+    except AttributeError:
+        print("Неправильно указана функция!")
+
+    except ValueError:
+        print("Некорректный ввод!")
+
+if rez1 == "str":
+    rez2 = input("Выберите функцию(reverse, capitalize):")
+    str = input("Введит строку:")
+
+    try:
+        print(getattr(my_package.string_operations, rez2)(str))
+
+    except AttributeError:
+        print("Неправильно указана функция!")
+
+if rez1 != "str" and rez1 != "num":
+    print("Модуль не найден")
