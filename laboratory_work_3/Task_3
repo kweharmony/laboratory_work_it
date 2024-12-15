@@ -1,0 +1,16 @@
+def read_file(parameter):
+    if parameter == 'all':
+        with open('example.txt', 'r') as file:
+            content = file.read()
+            print(content)
+    elif parameter == 'line':
+        with open('example.txt', 'r') as file:
+            lines = []
+            for line in file:
+                lines.append(line)
+            print(lines[int(input(("Номер строки:"))) - 1])
+    file.close()
+try:
+    read_file(input("Для чтение всего файла введите all, для построчного line:"))
+except FileNotFoundError:
+    print("Файл не найден")
