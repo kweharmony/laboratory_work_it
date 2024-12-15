@@ -1,0 +1,20 @@
+class Circle:
+
+    def __init__(self, radius):
+        self.radius = radius
+    
+    def get_radius(self):
+        return self.radius
+    
+    def set_radius(self, new_radius):
+        self.radius = new_radius
+
+try:
+    circle1 = Circle(int(input("Введите значение радиуса круга:")))
+    print("Радиус круга:", circle1.get_radius())
+
+    circle1.set_radius(int(input("Введите новое значение радиуса круга:")))
+    print("Новый радиус круга:", circle1.get_radius())
+
+except ValueError:
+    print("Значение недопустимо")
