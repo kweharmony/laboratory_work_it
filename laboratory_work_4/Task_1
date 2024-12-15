@@ -1,0 +1,9 @@
+from math import *
+from datetime import *
+
+def square_root(x):
+    return sqrt(x)
+
+print(square_root(int(input("Число для вычисления квадратного корня:"))))
+
+print(datetime.now())
