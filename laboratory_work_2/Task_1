@@ -1,0 +1,9 @@
+def greet(name):
+    print("Привет", name)
+
+def square(number):
+    return number ** 2
+
+def max_of_two(x, y):
+    list = [x, y]
+    return max(list)
